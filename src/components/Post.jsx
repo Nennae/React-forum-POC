@@ -1,10 +1,18 @@
-import  { useParams, useState } from "react-router-dom";
+import  { useParams, useLocation, Link } from "react-router-dom";
 
 const Post = () => {
-      const { id } = useParams();
-      // const {postInfo, setPostInfo} = useState();
+      const location = useLocation();
       return (
-            <h4>This is the Post pages with post with id: {id}</h4>
+            <>
+            <Link to="/">
+            <button>Go back</button>
+            </Link>
+            <div>
+                  <h4>This is the Post page with post id: {location.state.id} </h4>
+                  <h2>{location.state.title}</h2>
+                  <p>{location.state.body}</p>
+            </div>
+            </>
       )
 }
 

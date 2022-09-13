@@ -20,15 +20,17 @@ const PostsList = () => {
                   <div>
                   
                   { posts.slice(0,20).map((post) => {
-                        <PostCard key={post.id} post={post}/>
-                  })}
+                        return (
+                              <PostCard key={post.id} post={post}/>
+                        )
+                  })}   
             </div>
             ) : (
                   <h1>Oops! No posts to show.</h1>
             )}
-            
             </>
       )
 }
 
 export default PostsList;
+
