@@ -1,18 +1,17 @@
-import { useLocation, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const PostCard = (props) => {
       const { post } = props;
-      const { id, title, body } = post;
-      let location = useLocation();
-      console.log(location);
+      const { title, id } = post;
+
       return (
-            <div style={{maxWidth: "300px", background: "lightblue", padding: "20px", margin:"20px" }}>
+            <Link style={{textDecoration: "none"}} to={`/postpage/${id}`} state={post}>
+            <div className="postCard" 
+            >
+            <p className="postNr"># {id}</p>
             <h3>{title}</h3>
-            {/* <p>{body}</p> */}
-            <Link to="/postpage/:id" state={post}>
-            <button>Go to post</button>
-            </Link>
             </div>
+            </Link>
       )
 }
 
